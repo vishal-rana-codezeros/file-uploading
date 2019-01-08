@@ -25,21 +25,23 @@ function UploadFile(req, res) {
             console.log(req.fileExt)
             console.log({upload_len,sendOption,})
             cloudinary.v2.uploader.upload(`${process.cwd()}/files/${upload_len}`,sendOption,(error,result)=>{
-                // require('fs').unlink(`${process.cwd()}/files/${upload_len}`)
-                if(error){
-                    console.log("Printing out the error==========",error)
-                    return res.json({
-                        code: 500,
-                        message: "Internal server error, Please try again after some time."
-                    })
-                }else{
-                    console.log({request})
-                    return res.json({
-                        code: 201,
-                        message: "File uploading successful.",
-                        url:result.url
-                    })     
-                }
+                require('fs').unlink(`${process.cwd()}/files/${upload_len}`,(err_file,data_resp)=>{
+                    if(error || err_file){
+                        console.log("Printing out the error==========",error)
+                        return res.json({
+                            code: 500,
+                            message: "Internal server error, Please try again after some time."
+                        })
+                    }else{
+                        console.log({result})
+                        return res.json({
+                            code: 201,
+                            message: "File uploading successful.",
+                            url:result.url
+                        })     
+                    }
+                })
+                
             })
 
         }
