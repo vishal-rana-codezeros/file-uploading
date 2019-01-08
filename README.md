@@ -1,5 +1,5 @@
 Instruction to use this service:
-File type accepts - jpeg,jpg,png,gif,xlsx,xls,pdf
+File type accepts - jpeg,jpg,png,gif,xlsx,xls,pdf,ods
 URL - http:{remote_server_address}:6666/codezeros/uploadFile/common
 
 
