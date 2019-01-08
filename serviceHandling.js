@@ -19,7 +19,7 @@ function UploadFile(req, res) {
         }else{
             let sendOption = {}
             let upload_len = req.newFile_name
-            if(req.fileExt == '.xlsx' || req.fileExt== '.xls'){
+            if(req.fileExt == '.xlsx' || req.fileExt== '.xls' || req.fileExt== '.ods'){
                 sendOption["resource_type"] = "raw"
             }
             console.log(req.fileExt)
