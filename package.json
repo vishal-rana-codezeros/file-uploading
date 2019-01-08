@@ -1,0 +1,19 @@
+{
+  "name": "imageupload",
+  "version": "0.0.1",
+  "description": "Use this service for uploading image to cloudinary",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "image",
+    "file",
+    "upload"
+  ],
+  "author": "vishal rana",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.2.0"
+  }
+}
