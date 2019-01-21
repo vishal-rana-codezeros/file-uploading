@@ -1,14 +1,13 @@
 Instruction to use this service:
 File type accepts - jpeg,jpg,png,gif,xlsx,xls,pdf,ods
-URL - http:{remote_server_address}:6666/codezeros/uploadFile/common
+URL - http:{remote_server_address}:8808/codezeros/uploadFile/common
 
 
 step 1: Above is the url that you need to use for making use of this service
 
 Request parameters:
     1) Method- POST
-    2) content-type - application/x-www-form-urlencoded
-    3)  you need to send the file in form-data under the name file.
+    2)  you need to send the file in form-data under the name file.
 
 Response parameters:
     1) code - corredponding code to the request 
