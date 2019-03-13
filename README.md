@@ -1,21 +1,36 @@
-Instruction to use this service:
-File type accepts - jpeg,jpg,png,gif,xlsx,xls,pdf,ods
-URL - http:{remote_server_address}:8808/codezeros/uploadFile/common
+#Instruction to use this service:
+
+#Single file upload:(Uploading single file service,handles one file at a time)
+    * File type accepts - jpeg,jpg,png,gif,xlsx,xls,pdf,ods
+    * URL - http:{remote_server_address}:8808/codezeros/uploadFile/common
 
 
-step 1: Above is the url that you need to use for making use of this service
+###Above is the url that you need to use, for making use of this service
 
-Request parameters:
-    1) Method- POST
-    2)  you need to send the file in form-data under the name file.
+##Request parameters:
+    * Method- POST
+    * You need to send the file in form-data under the name file.
 
-Response parameters:
-    1) code - corredponding code to the request 
-    2) Message - Corresponding message to the request
-    3) url - The url of your uploaded file
+##Response parameters:
+    * Code - corredponding code to the request 
+    * Message - Corresponding message to the request
+    * Url - The url of your uploaded file
 
-if you get internal server error please try after  5 or 10 min.
+NOTE:if you get internal server error please try after  5 or 10 min.
 
+
+#Multiple file upload:(Uploading Multiple file service,handles multiple files at a time.)
+    * File type accepts - jpeg,jpg,png,gif,xlsx,xls,pdf,ods
+    * URL - http:{remote_server_address}:8808/codezeros/uploadMultipleFile/common
+
+##Request parameters:
+    * Method- POST
+    * You need to send the files in form-data under the name file(can select multiple files).
+
+##Response parameters:
+    * code - corredponding code to the request 
+    * Message - Corresponding message to the request
+    * data - This will contain the array of url of your recently uploaded files.    
 
 NOTE: This service is for codezeros and dataeximit internal usage only.Please contact if you get any trouble integrating this service
 
