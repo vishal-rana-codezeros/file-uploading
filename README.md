@@ -1,17 +1,17 @@
-#Instruction to use this service:
+# Instruction to use this service:
 
-#Single file upload:(Uploading single file service,handles one file at a time)
+# Single file upload:(Uploading single file service,handles one file at a time)
     * File type accepts - jpeg,jpg,png,gif,xlsx,xls,pdf,ods
     * URL - http:{remote_server_address}:8808/codezeros/uploadFile/common
 
 
-###Above is the url that you need to use, for making use of this service
+### Above is the url that you need to use, for making use of this service
 
-##Request parameters:
+## Request parameters:
     * Method- POST
     * You need to send the file in form-data under the name file.
 
-##Response parameters:
+## Response parameters:
     * Code - corredponding code to the request 
     * Message - Corresponding message to the request
     * Url - The url of your uploaded file
@@ -19,15 +19,15 @@
 NOTE:if you get internal server error please try after  5 or 10 min.
 
 
-#Multiple file upload:(Uploading Multiple file service,handles multiple files at a time.)
+# Multiple file upload:(Uploading Multiple file service,handles multiple files at a time.)
     * File type accepts - jpeg,jpg,png,gif,xlsx,xls,pdf,ods
     * URL - http:{remote_server_address}:8808/codezeros/uploadMultipleFile/common
 
-##Request parameters:
+## Request parameters:
     * Method- POST
     * You need to send the files in form-data under the name file(can select multiple files).
 
-##Response parameters:
+## Response parameters:
     * code - corredponding code to the request 
     * Message - Corresponding message to the request
     * data - This will contain the array of url of your recently uploaded files.    
