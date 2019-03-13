@@ -1,5 +1,4 @@
-let Upload = require('./multerFile')
+let Upload = require('./multerFile');
 
-module.exports ={
-    Upload
-}
+console.log(Upload)
+module.exports = Upload
