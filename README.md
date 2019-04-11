@@ -48,7 +48,7 @@ NOTE:if you get internal server error please try after  5 or 10 min.
     * Message - Corresponding message to the request
     * Url - The url of your uploaded video
 
-NOTE:if you get internal server error please try after  5 or 10 min.
+NOTE: if you get internal server error please try after  5 or 10 minutes, or check the file extension is as per the allowed extension or not.
 
 NOTE: This service is for codezeros and dataeximit internal usage only.Please contact if you get any trouble integrating this service
 
