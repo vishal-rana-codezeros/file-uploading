@@ -92,9 +92,45 @@ function UploadMultiFile(req, res) {
 }
 
 
+function UploadVideo(req, res) {
+    multerFile.uploadVideo(req, res, async function (err) {
+        if (err) {
+            return res.json({
+                code: 500,
+                message: "Internal server error, Please try again after some time."
+            })
+        } else {
+            let sendOption = {
+                resource_type: "video",
+                chunk_size: 6000000
+            }
+            let upload_len = req.newFile_name
+            cloudinary.v2.uploader.upload(`${process.cwd()}/files/${upload_len}`, sendOption, (error, result) => {
+                require('fs').unlink(`${process.cwd()}/files/${upload_len}`, (err_file, data_resp) => {
+                    if (error || err_file) {
+                        return res.json({
+                            code: 500,
+                            message: "Internal server error, Please try again after some time."
+                        })
+                    } else {
+                        return res.json({
+                            code: 201,
+                            message: "File uploading successful.",
+                            url: result.url
+                        })
+                    }
+                })
+
+            })
+
+        }
+    })
+}
 
 module.exports = {
     UploadFile, //handle single file upload
 
     UploadMultiFile, //handle multifile uploads
+
+    UploadVideo, //handle single video upload
 }

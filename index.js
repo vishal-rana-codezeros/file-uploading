@@ -40,8 +40,9 @@ app.use(function (req, res, next) {
 
 app.post('/codezeros/uploadFile/common', (req, res) => service.UploadFile(req, res))
 app.post('/codezeros/uploadMultipleFile/common', (req, res) => service.UploadMultiFile(req, res))
+app.post('/codezeros/uploadVideo/common', (req, res) => service.UploadVideo(req, res))
 
 
-app.listen(process.env.PORT, () => {
+ app.listen(process.env.PORT, () => {
     console.log(`Express server is running on ${process.env.PORT}`)
-})
+ })

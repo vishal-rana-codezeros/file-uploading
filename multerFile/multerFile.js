@@ -64,9 +64,32 @@ function checkFileType(file, callback) {
     }
 }
 
+var uploadVideo = multer({
+    storage: storage,
+    fileFilter: function (req, file, callback) {
+        checkVideoExtension(file, callback)
+    }
+}).single('file')
+
+/**
+ * check for the allowed video types
+ */
+function checkVideoExtension(file, callback) {
+    const fileTypes = /mp4|webm|ogg/;
+    const extName = fileTypes.test(path.extname(file.originalname).toLocaleLowerCase());
+    if (extName) {
+        return callback(null, true);
+    } else {
+        callback('Error:Video should be type of mp4,web, or ogg')
+        
+    }
+}
+
 
 module.exports = {
     upload,
 
-    uploadMultiple
+    uploadMultiple,
+
+    uploadVideo
 }
