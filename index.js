@@ -5,9 +5,10 @@ let service = require("./serviceHandling")
 let methodOverride = require('method-override');
 let morgan = require("morgan");
 let cors = require("cors");
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb',extended: true}));
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: true,
+	limit: '50mb'
 }))
 
 app.use(morgan("combined"))

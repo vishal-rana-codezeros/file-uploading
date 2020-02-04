@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
 
 var upload = multer({
     storage: storage,
-    fileFilter: function (req, file, callback) {
+	fileFilter: function (req, file, callback) {
         checkFileType(file, callback)
     }
 }).single('file')

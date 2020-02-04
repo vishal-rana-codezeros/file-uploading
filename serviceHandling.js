@@ -66,7 +66,8 @@ function UploadMultiFile(req, res) {
                     cloudinary.v2.uploader.upload(`${process.cwd()}/files/${data.name}`, sendOption, (error, result1) => {
                         require('fs').unlink(`${process.cwd()}/files/${data.name}`, (err_file, data_resp) => {
                             if (error || err_file) {
-                                return res.json({
+                      console.log({error,err_file});
+				    return res.json({
                                     code: 500,
                                     message: "Internal server error, Please try again after some time."
                                 })
