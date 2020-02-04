@@ -12,9 +12,10 @@
     * You need to send the file in form-data under the name file.
 
 ## Response parameters:
-    * Code - corredponding code to the request 
-    * Message - Corresponding message to the request
-    * Url - The url of your uploaded file
+    * code - corredponding code to the request 
+    * message - Corresponding message to the request
+    * url - The url of your uploaded file
+    * thumbnail - The thumbnail of the uploaded file
 
 NOTE:if you get internal server error please try after  5 or 10 min.
 
@@ -30,7 +31,9 @@ NOTE:if you get internal server error please try after  5 or 10 min.
 ## Response parameters:
     * code - corredponding code to the request 
     * Message - Corresponding message to the request
-    * data - This will contain the array of url of your recently uploaded files.    
+    * data - This will contain the array of Object that will contain two values 
+     - url - The url of your uploaded file
+     - thumbnail - The thumbnail of the uploaded file
 
 # Single Video upload:(Uploading single video service,handles one video at a time)
     * File type accepts - mp4,webm,ogg
@@ -44,9 +47,9 @@ NOTE:if you get internal server error please try after  5 or 10 min.
     * You need to send the file in form-data under the name file.
 
 ## Response parameters:
-    * Code - corredponding code to the request 
-    * Message - Corresponding message to the request
-    * Url - The url of your uploaded video
+    * code - corredponding code to the request 
+    * message - Corresponding message to the request
+    * url - The url of your uploaded video
 
 NOTE: if you get internal server error please try after  5 or 10 minutes, or check the file extension is as per the allowed extension or not.
 
