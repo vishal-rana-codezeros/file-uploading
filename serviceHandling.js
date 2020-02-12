@@ -19,7 +19,7 @@ async function createThumbAndReturnUrl(image_raw) {
     return new Promise((resolve, reject) => {
         let randomNum = `files/${Math.floor(Math.random() * 10000)}`;
         require('fs').writeFile(randomNum, thumbnail, 'binary', async function () {
-            cloudinary.v2.uploader.upload(randomNum, (err_upper,data) => {
+            cloudinary.v2.uploader.upload(randomNum, (err_upper, data) => {
                 if (data) {
                     require('fs').unlink(randomNum, function (err) {
                         if (err) throw err;
@@ -28,7 +28,7 @@ async function createThumbAndReturnUrl(image_raw) {
                     resolve(data.url);
 
                 } else {
-                    console.log({err_upper})
+                    console.log({ err_upper })
                     reject(err_upper);
                 }
             })
@@ -105,8 +105,12 @@ function UploadMultiFile(req, res) {
                                 if (result1) {
                                     /**push cloudinary url in upload_response array */
                                     /**check length of uploded url */
-                                    let thumb = await createThumbAndReturnUrl(result1.url);
-                                    upload_response.push({ url: result1.url, thumbnail: thumb })
+                                    if (data.fileExt == '.xlsx' || data.fileExt == '.xls' || data.fileExt == '.ods' || data.fileExt == '.pdf') {
+                                        upload_response.push({ url: result1.url })
+                                    } else {
+                                        let thumb = await createThumbAndReturnUrl(result1.url);
+                                        upload_response.push({ url: result1.url, thumbnail: thumb })
+                                    }
                                     if (upload_response.length === upload_len) {
                                         // return res.json({code:200,message:"Done"})
                                         resolve(upload_response)
