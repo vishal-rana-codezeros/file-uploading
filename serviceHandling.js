@@ -57,7 +57,11 @@ function UploadFile(req, res) {
                             message: "Internal server error, Please try again after some time."
                         })
                     } else {
-                        let thumb = await createThumbAndReturnUrl(result.url);
+                        let thumb = '';
+                        if (req.fileExt == '.xlsx' || req.fileExt == '.xls' || req.fileExt == '.ods' || req.fileExt == '.pdf') {
+                            thumb = ""
+                        } else
+                            thumb = await createThumbAndReturnUrl(result.url);
                         return res.json({
                             code: 201,
                             message: "File uploading successful.",
