@@ -57,7 +57,9 @@ function UploadFile(req, res) {
                             message: "Internal server error, Please try again after some time."
                         })
                     } else {
-                        let thumb = await createThumbAndReturnUrl(result.url);
+                        let thumb = "";
+                        if (req.fileExt == '.jpeg' || req.fileExt == '.jpg' || req.fileExt == '.png' || req.fileExt == "gif")
+                            thumb = await createThumbAndReturnUrl(result.url);
                         return res.json({
                             code: 201,
                             message: "File uploading successful.",
